@@ -62,13 +62,13 @@ Initial_Stmt: ID
 
 Funct_Declaration: Datatype Funct_Body ';'
                  | VOID Funct_Body ';'
-                 | Datatype Funct_Params ';'
-                 | VOID Funct_Params ';'
+                 | Datatype ID Funct_Params ';'
+                 | VOID ID Funct_Params ';'
                  ;
 
 Funct_Type: Datatype Funct_Body Compound
           | Datatype ID Funct_Params Compound
-          | VOID ID Funct_Body Compound
+          | VOID Funct_Body Compound
           | VOID ID Funct_Params Compound
           ;
 
@@ -82,8 +82,12 @@ Datatype: INT
 Funct_Body: ID '(' ')'
           ;
 
-Funct_Params: ID '(' Params ')'
+Funct_Params: '(' Params ')'
             ;
+
+type_or_not: Datatype
+	   | 
+           ;
 
 Params: Param
       | Params ',' Param
